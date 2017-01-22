@@ -46,6 +46,7 @@ RUN apk-install -t .build-deps linux-headers \
   && make \
   && make install \
   && echo "===> Shrinking image..." \
+  && cp -r /tmp/bro/scripts /usr/local/share/bro/site/
   && strip -s /usr/local/bin/bro \
   && rm -rf /tmp/* \
   && apk del --purge .build-deps
